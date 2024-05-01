@@ -1,5 +1,7 @@
-import { AppRoot, CardGrid, Group, Header, Panel, PanelHeader, View } from "@vkontakte/vkui";
+import { AppRoot, Footer, Panel, PanelHeader, View } from "@vkontakte/vkui";
+import { MainPage } from "../pages/main";
 import './styles/global.css';
+
 
 function App() {
   return (
@@ -7,14 +9,8 @@ function App() {
       <View activePanel="main">
         <Panel id="main">
           <PanelHeader>Hacker news</PanelHeader>
-          <Group
-            mode="card" 
-            header={<Header>В мире</Header>}
-          >
-            <CardGrid size="s"> 
-              123
-            </CardGrid>
-          </Group>
+          <MainPage />
+          <Footer>Developed by Montek1o</Footer>
         </Panel>
       </View>
     </AppRoot>
