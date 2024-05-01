@@ -7,20 +7,20 @@ import { NewsItem } from '../NewsItem/NewsItem';
 
 export const NewsList: FC = () => {
   const dispatch = useAppDispatch();
-  const {news, isLoading, error} = useAppSelector(state => state.newsReducer);
-
+  const { news, isLoading, error } = useAppSelector(state => state.newsReducer);
+  
   useEffect(() => {
     dispatch(fetchNews());
   }, [])
 
-  if (isLoading) return <Spinner />
   if (error) return <div>Ошибка! {error}</div>
 
   return (
     <Group className={classes.newsList}>
       {news.map((item) => 
-        <NewsItem news={item} key={item.id} />
+        <NewsItem item={item} key={item.id} />
       )}
+      {isLoading && <Spinner />}
     </Group>
   );
 };

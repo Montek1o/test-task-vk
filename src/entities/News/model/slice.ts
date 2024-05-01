@@ -23,11 +23,14 @@ export const newsSlice = createSlice({
     newsFetchingSuccess(state, action: PayloadAction<INews[]>) {
       state.isLoading = false;
       state.error = '';
-      state.news = action.payload;
+      state.news = [...state.news, ...action.payload];
     },
     newsFetchingError(state, action: PayloadAction<string>) {
       state.isLoading = false;
       state.error = action.payload;
+    },
+    newsClear(state) {
+      state.news = [];
     }
   }
 })
