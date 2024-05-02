@@ -10,7 +10,7 @@ export const fetchComments = (ids: number[]) => async (dispatch: AppDispatch) =>
     const comments = [];
     for (let i = 0; i < ids.length; i++) {
       const response = await axios.get<IComment>('https://hacker-news.firebaseio.com/v0/item/' + ids[i] + '.json');
-      console.log(response.data);
+      // console.log(response.data);
       if (response.data.dead !== true && response.data.deleted !== true) {
         comments.push(response.data);
       }

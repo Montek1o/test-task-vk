@@ -1,0 +1,8 @@
+.commentsItem:hover {
+  cursor: pointer;
+  outline: 1px solid white;
+}
+
+.commentsItem_notKids:hover {
+  cursor: default;
+}
