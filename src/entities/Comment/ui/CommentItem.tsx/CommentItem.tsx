@@ -34,7 +34,7 @@ const CommentItem: FC<CommentItemProps> = ({ comment }) => {
       {comment.kids && <SimpleCell style={{padding: 0}}>
         <Counter><Icon24CommentOutline />{comment.kids.length}</Counter>
       </SimpleCell>}
-      <div style={{marginLeft: '10px'}}>
+      <div style={{marginLeft: '10px', paddingBottom: '1px'}}>
         {nestComments && 
           nestComments.map((comm) => 
             <CommentItem comment={comm} key={comm.id} />
