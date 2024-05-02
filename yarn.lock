@@ -1726,6 +1726,11 @@
     redux-thunk "^3.1.0"
     reselect "^5.0.1"
 
+"@remix-run/router@^1.13.0":
+  version "1.16.0"
+  resolved "https://registry.yarnpkg.com/@remix-run/router/-/router-1.16.0.tgz#0e10181e5fec1434eb071a9bc4bdaac843f16dcc"
+  integrity sha512-Quz1KOffeEf/zwkCBM3kBtH4ZoZ+pT3xIXBG4PPW/XFtDP7EGhtTiC2+gpL9GnR7+Qdet5Oa6cYSvwKYg6kN9Q==
+
 "@rollup/plugin-babel@^5.2.0":
   version "5.3.1"
   resolved "https://registry.yarnpkg.com/@rollup/plugin-babel/-/plugin-babel-5.3.1.tgz#04bc0608f4aa4b2e4b1aebf284344d0f68fda283"
@@ -2447,6 +2452,13 @@
   version "2.14.1"
   resolved "https://registry.yarnpkg.com/@vkontakte/vk-bridge/-/vk-bridge-2.14.1.tgz#5966d9e2837570d7aed78d654bfda4ba83695c54"
   integrity sha512-ygUkWmAj1Yca1y6OKcFRhZjM2jJ8dlD/YM0hbz86iXc3Xrd8fc1aKGAOLmgPsXkqBR3mWMxA7PoNdlVLB97Qpg==
+
+"@vkontakte/vk-mini-apps-router@^1.4.3":
+  version "1.4.3"
+  resolved "https://registry.yarnpkg.com/@vkontakte/vk-mini-apps-router/-/vk-mini-apps-router-1.4.3.tgz#c4ed6bfe5f1cc489aee16b5127dc3b2832109573"
+  integrity sha512-BGGL26GbjiavyTn9CdF8b8ECyXyml9SxJKPnXZB01dvqzjMwttmZXiF9lwccArEZkjCoV3c2R+35uRwHaOMlhw==
+  dependencies:
+    "@remix-run/router" "^1.13.0"
 
 "@vkontakte/vk-miniapps-deploy@^0.1.7":
   version "0.1.7"

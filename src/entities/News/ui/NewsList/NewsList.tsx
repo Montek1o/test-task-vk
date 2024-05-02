@@ -1,24 +1,25 @@
 import { Group, Spinner } from '@vkontakte/vkui';
-import { FC, useEffect  } from 'react';
+import { FC } from 'react';
 import classes from './NewsList.module.css';
-import { useAppDispatch, useAppSelector } from '../../../../shared/lib/hooks';
-import { fetchNews } from '../../api/action';
 import { NewsItem } from '../NewsItem/NewsItem';
+import { INews } from '../../model/types';
 
-export const NewsList: FC = () => {
-  const dispatch = useAppDispatch();
-  const { news, isLoading, error } = useAppSelector(state => state.newsReducer);
-  
-  useEffect(() => {
-    dispatch(fetchNews());
-  }, [])
+interface NewsListProps {
+  news: INews[];
+  isLoading: boolean;
+  error: string;
+}
 
+export const NewsList: FC<NewsListProps> = ({ news, isLoading, error }) => {
   if (error) return <div>Ошибка! {error}</div>
 
   return (
     <Group className={classes.newsList}>
       {news.map((item) => 
-        <NewsItem item={item} key={item.id} />
+        <NewsItem 
+          item={item} 
+          key={item.id}
+        />
       )}
       {isLoading && <Spinner />}
     </Group>

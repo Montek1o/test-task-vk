@@ -1,7 +1,9 @@
-import { AdaptivityProvider, ConfigProvider } from "@vkontakte/vkui";
+import { AdaptivityProvider, AppRoot, ConfigProvider } from "@vkontakte/vkui";
 import { FC } from "react";
 import { Provider } from "react-redux";
 import { setupStore } from "../store";
+import { RouterProvider } from "@vkontakte/vk-mini-apps-router";
+import { router } from "../routers";
 
 const store = setupStore();
 
@@ -13,9 +15,13 @@ export const Providers: FC<IProviders> = ({ children }) => {
   return (
     <ConfigProvider appearance="dark">
       <AdaptivityProvider>
-        <Provider store={store}>
-          {children}
-        </Provider>
+        <AppRoot>
+          <Provider store={store}>
+            <RouterProvider router={router}>
+              {children}
+            </RouterProvider>
+          </Provider>
+        </AppRoot>
       </AdaptivityProvider>
     </ConfigProvider>
   );

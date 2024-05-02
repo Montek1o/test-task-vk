@@ -4,3 +4,8 @@ export const formatDate = (unixTime: string) => {
 
   return formattedTime;
 }
+
+export const getErrorMessage = (error: unknown) => {
+  if (error instanceof Error) return error.message
+  return String(error)
+}

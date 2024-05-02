@@ -20,18 +20,20 @@ export const newsSlice = createSlice({
     newsFetching(state) {
       state.isLoading = true;
     },
-    newsFetchingSuccess(state, action: PayloadAction<INews[]>) {
+    newsFetchingSuccess(state) {
       state.isLoading = false;
       state.error = '';
-      state.news = [...state.news, ...action.payload];
     },
     newsFetchingError(state, action: PayloadAction<string>) {
       state.isLoading = false;
       state.error = action.payload;
     },
+    newsAddItem(state, action: PayloadAction<INews>) {
+      state.news = [...state.news, action.payload];
+    },
     newsClear(state) {
       state.news = [];
-    }
+    },
   }
 })
 

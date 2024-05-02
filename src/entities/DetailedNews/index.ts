@@ -1,0 +1,1 @@
+export { DetailedNews } from './ui/DetailedNews';

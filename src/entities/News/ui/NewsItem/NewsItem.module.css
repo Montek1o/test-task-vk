@@ -1,0 +1,11 @@
+.newsItem {
+  cursor: pointer;
+}
+
+.newsItem:hover {
+  outline: 1px solid rgb(124, 124, 124);
+}
+
+.newsItem_disabled {
+  cursor: wait;
+}
