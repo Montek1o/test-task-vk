@@ -4,8 +4,7 @@ import { formatDate } from "../../../../shared/lib/utils";
 import { Counter, Group, SimpleCell } from "@vkontakte/vkui";
 import { Icon24CommentOutline } from "@vkontakte/icons";
 import axios from "axios";
-import classes from "./CommentsItem.module.css";
-// import { CommentList } from "../CommentList/CommentList";
+import classes from "./CommentItem.module.css";
 
 interface CommentItemProps {
   comment: IComment;
@@ -25,7 +24,7 @@ const CommentItem: FC<CommentItemProps> = ({ comment }) => {
   }
 
   return (
-    <Group onClick={openNestedComment} className={comment.kids ? classes.commentsItem : classes.commentsItem_notKids}>
+    <Group onClick={openNestedComment} className={comment.kids ? classes.commentItem : classes.commentItem_notKids}>
       <div style={{display: 'flex', justifyContent: 'space-between'}}>
         <p><b>{comment.by}</b></p>
         <p>{formatDate(comment.time)}</p>

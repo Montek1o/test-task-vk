@@ -15,13 +15,13 @@ export const NewsList: FC<NewsListProps> = ({ news, isLoading, error }) => {
 
   return (
     <Group className={classes.newsList}>
+      {isLoading && <Spinner />}
       {news.map((item) => 
         <NewsItem 
           item={item} 
           key={item.id}
         />
       )}
-      {isLoading && <Spinner />}
     </Group>
   );
 };

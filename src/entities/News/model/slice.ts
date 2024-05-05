@@ -5,12 +5,14 @@ interface NewsState {
   news: INews[];
   isLoading: boolean;
   error: string;
+  ids: number[];
 }
 
 const initialState: NewsState = {
   news: [],
   isLoading: false,
   error: '',
+  ids: [],
 }
 
 export const newsSlice = createSlice({
@@ -29,11 +31,15 @@ export const newsSlice = createSlice({
       state.error = action.payload;
     },
     newsAddItem(state, action: PayloadAction<INews>) {
-      state.news = [...state.news, action.payload];
+      state.news.push(action.payload);
     },
-    newsClear(state) {
-      state.news = [];
+    newsIdsFetching(state, action: PayloadAction<number[]>) {
+      state.ids = action.payload;
     },
+    updateNews(state, action: PayloadAction<INews>) {
+      state.news.pop();
+      state.news.unshift(action.payload);
+    }
   }
 })
 
