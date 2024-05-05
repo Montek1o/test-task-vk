@@ -24,5 +24,9 @@ export const fetchComments = (ids: number[]) => async (dispatch: AppDispatch) =>
 
 export const updateComments = (parentId: number) => async (dispatch: AppDispatch) => {
   const response = await axios.get<IDetailedNews>('https://hacker-news.firebaseio.com/v0/item/' + parentId + '.json');
-  dispatch(fetchComments(response.data.kids));
+  if (response.data.kids) {
+    dispatch(fetchComments(response.data.kids));
+  } else {
+    alert('Комментарии к этой новости отсутствуют')
+  }
 }
