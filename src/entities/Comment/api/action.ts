@@ -3,6 +3,7 @@ import { AppDispatch } from "../../../app/store";
 import { commentsSlice } from "../model/slice";
 import { IComment } from "../model/types";
 import { getErrorMessage } from "../../../shared/lib/utils";
+import { IDetailedNews } from "../../DetailedNews/model/types";
 
 export const fetchComments = (ids: number[]) => async (dispatch: AppDispatch) => {
   try {
@@ -19,4 +20,9 @@ export const fetchComments = (ids: number[]) => async (dispatch: AppDispatch) =>
   } catch (e) {
     dispatch(commentsSlice.actions.commentsFetchingError(getErrorMessage(e)));
   }
+}
+
+export const updateComments = (parentId: number) => async (dispatch: AppDispatch) => {
+  const response = await axios.get<IDetailedNews>('https://hacker-news.firebaseio.com/v0/item/' + parentId + '.json');
+  dispatch(fetchComments(response.data.kids));
 }

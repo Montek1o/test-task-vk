@@ -32,7 +32,6 @@ export const updateNews = (oldIds: number[]) => async (dispatch: AppDispatch) =>
     if (updateIds.length) {
       for (let i = 0; i < updateIds.length; i++) {
         const response = await axios.get<INews>('https://hacker-news.firebaseio.com/v0/item/' + updateIds[updateIds.length - i - 1] + '.json');
-        console.log(response.data);
         dispatch(newsSlice.actions.updateNews(response.data));
       }
       dispatch(newsSlice.actions.newsIdsFetching(newsIds));
